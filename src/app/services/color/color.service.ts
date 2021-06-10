@@ -8,11 +8,12 @@ import { ColorResponseModel } from 'src/app/models/color/colorResponseModel';
 })
 export class ColorService {
 
-  apiUrl = 'https://localhost:44383/api/Colors/getall';
+  apiUrl = 'https://localhost:44383/api/';
   constructor(private httpClient:HttpClient) { }
 
   getColors():Observable<ColorResponseModel>{
+    let newApiUrl= this.apiUrl + 'Colors/getall';
     return this.httpClient
-    .get<ColorResponseModel>(this.apiUrl);
+    .get<ColorResponseModel>(newApiUrl);
   }
 }

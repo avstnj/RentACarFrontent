@@ -7,11 +7,11 @@ import { RentalResponseModel } from 'src/app/models/rental/rentalResponseModel';
   providedIn: 'root',
 })
 export class RentalService {
-  apiUrl = 'https://localhost:44383/api/Rentals/';
+  apiUrl = 'https://localhost:44383/api/';
   constructor(private httpClient: HttpClient) {}
 
   getAllDetails(): Observable<RentalResponseModel> {
-    this.apiUrl += 'getAllDetails';
-    return this.httpClient.get<RentalResponseModel>(this.apiUrl);
+    let newApiUrl = this.apiUrl + 'Rentals/getAllDetails';
+    return this.httpClient.get<RentalResponseModel>(newApiUrl);
   }
 }

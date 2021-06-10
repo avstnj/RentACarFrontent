@@ -7,11 +7,12 @@ import { BrandResponseModel } from 'src/app/models/brand/brandResponseModel';
   providedIn: 'root'
 })
 export class BrandService {
-  apiUrl = 'https://localhost:44383/api/Brands/getall';
+  apiUrl = 'https://localhost:44383/api/';
   constructor(private httpClient:HttpClient) { }
 
   getBrands():Observable<BrandResponseModel>{
+    let newApiUrl = this.apiUrl + 'Brands/getall'
     return this.httpClient
-    .get<BrandResponseModel>(this.apiUrl);
+    .get<BrandResponseModel>(newApiUrl);
   }
 }
