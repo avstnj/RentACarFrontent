@@ -1,0 +1,4 @@
+<select [ngModel]="selectedColor" (ngModelChange)="onChange($event)" class="form-select">
+    <option [ngValue]="selectedColor" selected >Renk Seçiniz</option>
+    <option *ngFor="let color of colors" value="{{color.id}}">{{color.name}}</option>
+  </select>

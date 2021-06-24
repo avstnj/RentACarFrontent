@@ -1,0 +1,4 @@
+<select [ngModel]="selectedBrand" (ngModelChange)="onChange($event)" class="form-select" aria-label="Default select example">
+    <option [ngValue]="selectedBrand" selected >Marka Seçiniz</option>
+    <option *ngFor="let brand of brands" value="{{brand.id}}">{{brand.name}}</option>
+  </select>

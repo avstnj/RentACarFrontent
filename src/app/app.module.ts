@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,7 +13,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { NaviComponent } from './components/navi/navi.component';
 import { CardetailComponent } from './components/cardetail/cardetail.component';
 import { NgbModule, NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
-
+import { FilterCarPipe } from './pipes/filter-car.pipe';
+import { FilterBrandPipe } from './pipes/filter-brand.pipe';
+import { FilterColorPipe } from './pipes/filter-color.pipe';
+import { FormsModule } from '@angular/forms';
+import { BrandSelectOptionListComponent } from './components/brand/brand-select-option-list/brand-select-option-list/brand-select-option-list.component';
+import { ColorSelectOptionListComponent } from './components/color/color-select-option-list/color-select-option-list/color-select-option-list.component';
+import { ToastrModule } from 'ngx-toastr';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,14 +29,22 @@ import { NgbModule, NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
     CarComponent,
     RentalComponent,
     NaviComponent,
-    CardetailComponent
+    CardetailComponent,
+    FilterCarPipe,
+    FilterBrandPipe,
+    FilterColorPipe,
+    BrandSelectOptionListComponent,
+    ColorSelectOptionListComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     NgbPaginationModule,
-    NgbModule
+    NgbModule,
+    FormsModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]

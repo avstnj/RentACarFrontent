@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { CarModel } from 'src/app/models/car/carModel';
 import { CarImage } from 'src/app/models/carImage/carImage';
+import { Color } from 'src/app/models/color/color';
 import { CarService } from 'src/app/services/car/car.service';
 
 @Component({
@@ -25,9 +27,12 @@ export class CarComponent implements OnInit {
   }];
   dataLoaded = false;
   dataCount = false;
+  colorFilter: any;
+  brandFilter: any;
   constructor(
     private carService: CarService,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private toastrService: ToastrService
   ) {}
 
   ngOnInit(): void {
@@ -63,5 +68,27 @@ export class CarComponent implements OnInit {
       this.cars = response.data;
       this.dataLoaded = true;
     });
+  }
+  getCarsByColorIdAndBrandId(colorId: number,brandId: number){
+    this.carService.getCarsByColorIdAndBrandId(colorId,brandId).subscribe((response) => {
+      this.dataCount = response.data.length > 0 ? true : false;
+      this.cars = response.data;
+      this.dataLoaded = true;
+    });
+  }
+  filtrele(){
+    console.log(this.colorFilter);
+    console.log(this.brandFilter);
+    if(this.colorFilter && this.brandFilter)
+      this.getCarsByColorIdAndBrandId(this.colorFilter,this.brandFilter);
+    else
+    this.toastrService.error("Renk ve Marka filtreleri seçilmelidir.");
+  }
+
+  setColor(color: any) {
+    this.colorFilter = color;
+  }
+  setBrand(brand: any) {
+    this.brandFilter = brand;
   }
 }

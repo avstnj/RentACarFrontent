@@ -27,4 +27,8 @@ export class CarService {
     let newApiUrl = this.apiUrl + 'Cars/GetCarsByColorId?colorId=' + colorId;
     return this.httpClient.get<ListResponseModel<CarModel>>(newApiUrl);
   }
+  getCarsByColorIdAndBrandId(colorId: number,brandId:number) {
+    let newApiUrl = this.apiUrl + 'Cars/getCarsByColorIdAndBrandId?colorId=' + colorId +'&brandId='+brandId;
+    return this.httpClient.get<ListResponseModel<CarModel>>(newApiUrl);
+  }
 }

@@ -7,6 +7,18 @@
   <span class="visually-hidden">Loading...</span>
 </div>
 <header style="text-align: center; font-weight: bold; background-color: darkgray;">Araba</header>
+<div class="row">
+  <div class="col-md-4 mt-2">
+    <app-brand-select-option-list (brandFilter)="setBrand($event)"></app-brand-select-option-list>
+  </div>
+  <div class="col-md-4 mt-2">
+    <app-color-select-option-list (colorFilter)="setColor($event)"></app-color-select-option-list>
+  </div>
+  <div class="col-md-4 mt-2">
+    <input (click)="filtrele()" class="btn btn-primary" type="button" value="Filtrele" style="margin-left: auto;margin-right: auto;" />
+  </div>
+</div>
+
 <table
   *ngIf="dataLoaded == true && dataCount == true"
   class="table table-striped"

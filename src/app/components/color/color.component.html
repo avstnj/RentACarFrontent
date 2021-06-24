@@ -2,6 +2,11 @@
     <span class="visually-hidden">Loading...</span>
   </div>
 <header style="text-align: center; font-weight: bold; background-color: darkgray;">Renk</header>
+<div class="mb-2 mt-2">
+    <!-- <label for="filterText" class="form-label">Ürün Ara</label> -->
+    <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText"
+        placeholder="Arama ifadesi giriniz.">
+  </div>
 <table style="text-align: center;" *ngIf="dataLoaded == true" class="table table-striped">
     <thead>
         <tr>
@@ -11,7 +16,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let color of colors">
+        <tr *ngFor="let color of colors | filterBrand:filterText">
             <!-- <td>{{color.id}}</td> -->
             <td
                 routerLink="/cars/color/{{color.id}}"
