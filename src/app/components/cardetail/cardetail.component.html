@@ -1,0 +1,42 @@
+
+<div class="card" style="text-align: center;">
+  <div class="card-body">
+    <h5 class="card-title">{{ cars.brandName }}-{{ cars.carName }}</h5>
+    <p class="card-text">{{ cars.description }}</p>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">{{ cars.brandName }}</li>
+    <li class="list-group-item">{{ cars.carName }}</li>
+    <li class="list-group-item">{{ cars.colorName }}</li>
+    <li class="list-group-item">{{ cars.dailyPrice }} TL</li>
+    <li class="list-group-item">{{ cars.modelYear }}</li>
+  </ul>
+</div>
+
+<!-- <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div *ngFor="let carImg of carImage" class="carousel-item active">
+      <img src="{{ imgUrl }}{{ carImg.imagePath }}" class="d-block w-100" alt="...">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div> -->
+
+<ngb-carousel *ngIf="carImage">
+  <ng-template *ngFor="let carImg of carImage" ngbSlide>
+    <div class="picsum-img-wrapper">
+      <img src="{{ imgUrl }}{{ carImg.imagePath }}" alt="Random first slide">
+    </div>
+    <div class="carousel-caption">
+      <h3>10 seconds between slides...</h3>
+      <p>This carousel uses customized default values.</p>
+    </div>
+  </ng-template>
+</ngb-carousel>

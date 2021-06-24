@@ -6,28 +6,33 @@
 >
   <span class="visually-hidden">Loading...</span>
 </div>
+<header style="text-align: center; font-weight: bold; background-color: darkgray;">Araba</header>
 <table
   *ngIf="dataLoaded == true && dataCount == true"
   class="table table-striped"
 >
   <thead>
     <tr>
-      <th>CarId</th>
-      <th>BrandName</th>
-      <th>ColorName</th>
-      <th>DailyPrice</th>
-      <th>Description</th>
-      <th>ModelYear</th>
+      <!-- <th>Araç ID</th> -->
+      <th>Marka</th>
+      <th>Renk</th>
+      <th>Günlük Fiyat</th>
+      <th>Açıklama</th>
+      <th>Model Yıl</th>
+      <th>Detay</th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let car of cars">
-      <td>{{ car.carId }}</td>
+      <!-- <td>{{ car.carId }}</td> -->
       <td>{{ car.brandName }}</td>
       <td>{{ car.colorName }}</td>
       <td>{{ car.dailyPrice }}</td>
       <td>{{ car.description }}</td>
       <td>{{ car.modelYear }}</td>
+      <td><input
+        routerLink="/cars/cardetail/{{car.carId}}"
+        type="button" class="btn btn-success" value="Detay"></td>
     </tr>
   </tbody>
 </table>
