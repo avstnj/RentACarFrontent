@@ -11,7 +11,7 @@ export class BrandSelectOptionListComponent implements OnInit {
   brands: Brand[] = [];
   dataLoaded = false;
   dataCount = false;
-  selectedBrand:string="0";
+  selectedBrand:string;
   @Output() brandFilter = new EventEmitter<string>();
   constructor(private brandService: BrandService) { }
 

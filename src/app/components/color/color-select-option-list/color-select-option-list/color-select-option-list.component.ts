@@ -10,7 +10,7 @@ import { ColorService } from 'src/app/services/color/color.service';
 export class ColorSelectOptionListComponent implements OnInit {
   colors: Color[] = [];
   dataLoaded = false;
-  selectedColor:string="0";
+  selectedColor:string;
   @Output() colorFilter = new EventEmitter<string>();
 
   constructor(private colorService: ColorService) { }

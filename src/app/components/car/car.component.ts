@@ -79,10 +79,14 @@ export class CarComponent implements OnInit {
   filtrele(){
     console.log(this.colorFilter);
     console.log(this.brandFilter);
-    if(this.colorFilter && this.brandFilter)
+    if(this.colorFilter != undefined && this.brandFilter != undefined)
       this.getCarsByColorIdAndBrandId(this.colorFilter,this.brandFilter);
+    else if(this.colorFilter !=undefined && this.brandFilter == undefined)
+      this.getCarsByColorId(this.colorFilter);
+    else if(this.colorFilter == undefined && this.brandFilter != undefined)
+      this.getCarsByBrandId(this.brandFilter);
     else
-    this.toastrService.error("Renk ve Marka filtreleri seçilmelidir.");
+      this.getCars();
   }
 
   setColor(color: any) {
