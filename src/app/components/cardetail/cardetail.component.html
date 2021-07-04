@@ -1,4 +1,7 @@
-
+<div class="row">
+  <div class="col-md-10"></div>
+  <div class="col-md-2"></div>
+</div>
 <div class="card" style="text-align: center;">
   <div class="card-body">
     <h5 class="card-title">{{ cars.brandName }}-{{ cars.carName }}</h5>
@@ -10,8 +13,13 @@
     <li class="list-group-item">{{ cars.colorName }}</li>
     <li class="list-group-item">{{ cars.dailyPrice }} TL</li>
     <li class="list-group-item">{{ cars.modelYear }}</li>
+    <!-- <li class="list-group-item"><input type="button" value="Kirala" (click)="kirala(cars)" class="btn btn-primary"/></li> -->
+    <li class="list-group-item">
+    </li>
   </ul>
 </div>
+
+
 
 <!-- <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
   <div class="carousel-inner">
@@ -40,3 +48,20 @@
     </div>
   </ng-template>
 </ngb-carousel>
+
+<div class="card" style="text-align: center;">
+  <div class="row">
+    <div class="col-4">
+      <input type="date" id="startDate" name="startDate" [(ngModel)]="todayStartString" #startDate>
+    </div>
+    <!-- {{todayString | date:'shortDate'}} -->
+    <div class="col-4">
+      <input type="date" id="endDate" name="endDate" [(ngModel)]="todayEndString" #endDate>
+    </div>
+    <div class="col-4">
+      <input type="button" (click)="DateQuery(startDate.value,endDate.value)" value="Kirala" class="btn btn-primary">
+    </div>
+  </div>
+</div>
+
+<app-creditcard></app-creditcard>
